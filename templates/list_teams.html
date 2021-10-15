@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Teams</title>
+</head>
+<body>
+    <div>
+        {% for team in teams %}
+            <li>{{ team.name }}</li>
+        {% endfor %}
+    </div>
+    <div>
+        <a href="{% url 'create team' %}"><button type="button">Create Team</button></a>
+        <a href="{% url 'list matches' %}"><button type="button">Match</button></a>
+    </div>
+</body>
+</html>

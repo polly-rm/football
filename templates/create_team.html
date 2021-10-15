@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Team</title>
+</head>
+<body>
+    <div>
+        <form method="post" class="furniture-form" action="{% url 'create team' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button class="btn btn-primary mt-2" type="submit">Create</button>
+            <a href="{% url 'list teams' %}"><button type="button">Teams</button></a>
+        </form>
+    </div>
+</body>
+</html>

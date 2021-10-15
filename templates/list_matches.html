@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Matches</title>
+</head>
+<body>
+    <div>
+        <a href="{% url 'create team' %}"><button type="button">Create Team</button></a>
+        <a href="{% url 'list teams' %}"><button type="button">Teams</button></a>
+    </div>
+    {% if result %}
+        {% for el in result %}
+            {% for it in el %}
+                {{ it }}
+                <br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>Please add even number of teams!</p>
+    {% endif %}
+</body>
+</html>
