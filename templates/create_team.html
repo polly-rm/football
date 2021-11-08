@@ -16,13 +16,8 @@
                     <form style="text-align: center" method="post" class="furniture-form" action="{% url 'create team' %}"
                           enctype="multipart/form-data">
                         {% csrf_token %}
-
-                        <div>
-                            <h3 >Team Name:</h3><br>
-                            <input name="name"><br>
-                            <button class="btn btn-primary mt-4" style="width: 100%" type="submit">Create</button>
-                        </div>
-
+                        {{ form }}
+                        <button class="btn btn-primary mt-4" style="width: 100%" type="submit">Create</button>
                     </form>
 
                     <a href="{% url 'list teams' %}">
