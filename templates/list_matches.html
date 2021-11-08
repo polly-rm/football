@@ -1,25 +1,52 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Matches</title>
-</head>
-<body>
-    <div>
-        <a href="{% url 'create team' %}"><button type="button">Create Team</button></a>
-        <a href="{% url 'list teams' %}"><button type="button">Teams</button></a>
-    </div>
-    {% if result %}
-        {% for el in result %}
-            {% for it in el %}
-                {{ it }}
-                <br>
-            {% endfor %}
-            <br>
-        {% endfor %}
-    {% else %}
-        <p>Please add even number of teams!</p>
-    {% endif %}
-</body>
-</html>
+{% extends 'common/base.html' %}
+{% block content %}
+
+    <header class="py-5 bg-image-full"
+            style="background-image: url('https://www.fulltimecover.com/wp-content/uploads/2018/09/Football_Banner-1.jpg')">
+        <div class="text-center my-5">
+            <h1 class="text-white fs-3 fw-bolder">FOOTBALL GAMES</h1>
+            <h2 class="text-white-50 mb-0">All Matches</h2>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container my-6">
+            <div class="row justify-content-center">
+                <div style="text-align: center">
+
+                    <div>
+                        {% if result %}
+                            <ul style="column-count: 3">
+                                {% for el in result %}
+                                    <h6>
+                                        <div class="container" style="text-align: left">
+                                            {% for it in el %}
+                                                {{ it }}
+                                                <br>
+                                            {% endfor %}
+                                        </div>
+                                    </h6>
+                                    <br>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <h4>Please add even number of teams!</h4>
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <a href="{% url 'create team' %}">
+                            <button class="btn btn-primary mt-4" style="width: 20%">Create Team</button>
+                        </a>
+                        <a href="{% url 'list teams' %}">
+                            <button class="btn btn-secondary mt-4" style="width: 20%">Teams</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+

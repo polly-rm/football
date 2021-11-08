@@ -25,12 +25,21 @@ class ListTeamsView(ListView):
     context_object_name = 'teams'
 
 
+class ListMatchesView(ListView):
+    paginate_by = 1
+    template_name ='list_matches.html'
+    context_object_name = 'result'
+
 class MatchesDetailsView(DetailView):
     def get(self, request, *args, **kwargs):
         result = generate_matches()
         context = {"result": result}
         return render(request, "list_matches.html", context)
 
+
+class IndexView(DetailView):
+    def get(self, request, *args, **kwargs):
+        return render(request, "index.html")
 
 
 

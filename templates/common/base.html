@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'common/header.html' %}
+
+<body>
+    {% include 'common/navigation.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'common/footer.html' %}
+</body>
+</html>

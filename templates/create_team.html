@@ -1,18 +1,37 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Team</title>
-</head>
-<body>
-    <div>
-        <form method="post" class="furniture-form" action="{% url 'create team' %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            <button class="btn btn-primary mt-2" type="submit">Create</button>
-            <a href="{% url 'list teams' %}"><button type="button">Teams</button></a>
-        </form>
-    </div>
-</body>
-</html>
+{% extends 'common/base.html' %}
+{% block content %}
+
+    <header class="py-5 bg-image-full"
+            style="background-image: url('https://www.fulltimecover.com/wp-content/uploads/2018/09/Football_Banner-1.jpg')">
+        <div class="text-center my-5">
+            <h1 class="text-white fs-3 fw-bolder">FOOTBALL GAMES</h1>
+            <h2 class="text-white-50 mb-0">Create New Team</h2>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container my-6">
+            <div class="row justify-content-center">
+                <div class="col-lg-2">
+                    <form style="text-align: center" method="post" class="furniture-form" action="{% url 'create team' %}"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div>
+                            <h3 >Team Name:</h3><br>
+                            <input name="name"><br>
+                            <button class="btn btn-primary mt-4" style="width: 100%" type="submit">Create</button>
+                        </div>
+
+                    </form>
+
+                    <a href="{% url 'list teams' %}">
+                        <button class="btn btn-secondary mt-4" style="width: 100%">Teams</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
